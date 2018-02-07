@@ -14,9 +14,9 @@ export class LoadThreadsEffectService {
 
   @Effect() userThreads$: Observable<Action> = this.actions$
                                .ofType(LOAD_USER_THREADS_ACTION)
-                               .do(val => console.log('action received', val))
+                               .debug('action received')
                                .switchMap(() => this.threadService.loadUserThreads())
-                               .do(val => console.log('data received via HTTP request', val))
+                               .debug('data received via HTTP request')
                                .map(allUserData => new UserThreadsLoadedAction(allUserData));
                                // No hay que hacer dispatch, esto lo hace el effect automáticamente
 
