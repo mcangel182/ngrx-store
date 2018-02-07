@@ -1,10 +1,10 @@
 import { ApplicationState } from '../store/application-state';
 
 export function userNameSelector(state: ApplicationState): string {
-    const currentUserId = state.loadUserThreads.uiState.userId,
-        currentParticipant = state.loadUserThreads.storeData.participants[currentUserId]
+    const currentUserId = state.uiState.userId,
+        currentParticipant = state.storeData.participants[currentUserId]
     if (!currentParticipant) {
         return '';
     }
-    return state.loadUserThreads.storeData.participants[state.loadUserThreads.uiState.userId].name;
+    return state.storeData.participants[state.uiState.userId].name;
 }
