@@ -1,10 +1,10 @@
 import { INITIAL_UI_STATE, UiState } from "../ui-state";
 import { Action } from '@ngrx/store';
-import { USER_THREADS_LOADED_ACTION } from "../action";
+import { THREAD_SELECTED_ACTION } from "../action";
 
 export function uiState(state: UiState = INITIAL_UI_STATE, action: Action): UiState {
   switch (action.type) {
-    case USER_THREADS_LOADED_ACTION:
+    case THREAD_SELECTED_ACTION:
       const newState = Object.assign({}, state);
       newState.currentThreadId = action.payload;
       return newState
