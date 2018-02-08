@@ -1,3 +1,4 @@
+import { USER_THREADS_LOADED_ACTION } from './../action';
 import { ThreadsService } from './../../services/threads.service';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
@@ -18,5 +19,9 @@ export class ServerNotificationsEffectService {
                                      .filter(uiState => uiState.userId)
                                      .switchMap(uiState => this.threadService.loadNewMessagesForUser(uiState.userId))
                                      .debug('new messages received from server')
-                                     .map(messages => new NewMessagesReceivedAction(messages));
+                                     .withLatestFrom(<any>this.store.select('uiState'))
+                                     .map(([messages, uiState]) => new NewMessagesReceivedAction({
+                                       unreadMessages: messages,
+                                       currentThreadId: uiState.currentThreadId,
+                                       currentUserId: uiState.userId}));
 }

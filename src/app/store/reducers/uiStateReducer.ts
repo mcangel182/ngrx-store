@@ -8,7 +8,7 @@ export function uiState(state: UiState = INITIAL_UI_STATE, action: Action): UiSt
 
     case THREAD_SELECTED_ACTION:
       const newState = Object.assign({}, state);
-      newState.currentThreadId = action.payload;
+      newState.currentThreadId = action.payload.selectedThreadId;
       return newState;
 
     case SELECT_USER_ACTION:

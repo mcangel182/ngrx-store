@@ -3,11 +3,11 @@
     <div class="thread-count">
         <span><h3>User: {{userName$ | async}}</h3></span>
         <span class="unread-messages-counter" [ngClass]="{unread: (unreadMessagesCounter$ | async) > 0 }">
-            Unread messages: {{unreadMessagesCounter$ | async}}
+            Unread msgs: {{unreadMessagesCounter$ | async}}
         </span>
     </div>
     <thread-list [threads]="threadSummaries$ | async"
-                 [currentSelectedThreadId]="currentSelectedThreadId$ | async"
+                 [currentSelectedThreadId]="uiState?.currentThreadId"
                  (threadSelected)="onThreadSelected($event)"></thread-list>
 
 </div>

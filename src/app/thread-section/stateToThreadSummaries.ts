@@ -16,6 +16,7 @@ export function stateToThreadSummaries(state: ApplicationState): ThreadSummaryVM
         id: thread.id,
         participantNames: buildThreadParticipantsList(state, thread),
         lastMessageText: state.storeData.messages[lastMessageId].text,
-        timestamp: lastMessage.timestamp
+        timestamp: lastMessage.timestamp,
+        read: thread.id === state.uiState.currentThreadId || thread.participants[state.uiState.userId] === 0
       };
   }
