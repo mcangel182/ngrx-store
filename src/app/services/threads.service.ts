@@ -32,4 +32,12 @@ export class ThreadsService {
     });
     return this.http.post('/api/notifications/messages', null, { headers }).map(res => res.payload);
   }
+
+  markMessageAsRead(currentUserId: number, selectedThreadId: number): Observable<any> {
+    const headers =  new HttpHeaders({
+      'USERID': currentUserId.toString(),
+      'Content-Type': 'application/json; charset=utf-8'
+    });
+    return this.http.patch(`/api/threads/${selectedThreadId}`, {read: true}, { headers });
+  }
 }
