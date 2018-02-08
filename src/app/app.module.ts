@@ -1,3 +1,4 @@
+import { WriteNewMessageEffectService } from './store/effects/write-new-message-effect.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -43,7 +44,7 @@ export const reducers: ActionReducerMap<any> = {
     FormsModule,
     HttpClientModule,
     StoreModule.forRoot(reducers, {initialState: INITIAL_APPLICATION_STATE}),
-    EffectsModule.forRoot([LoadThreadsEffectService]),
+    EffectsModule.forRoot([LoadThreadsEffectService, WriteNewMessageEffectService]),
     StoreDevtoolsModule.instrument()
   ],
   providers: [ThreadsService],

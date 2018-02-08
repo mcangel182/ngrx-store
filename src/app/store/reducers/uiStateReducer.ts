@@ -1,7 +1,7 @@
 import { INITIAL_UI_STATE, UiState } from '../ui-state';
 import { Action } from '@ngrx/store';
-import { THREAD_SELECTED_ACTION, SELECT_USER_ACTION } from '../action';
-import { SelectUserAction } from '../../user-selection/action';
+import { THREAD_SELECTED_ACTION, SELECT_USER_ACTION, SelectUserAction } from '../action';
+
 
 export function uiState(state: UiState = INITIAL_UI_STATE, action: Action): UiState {
   switch (action.type) {

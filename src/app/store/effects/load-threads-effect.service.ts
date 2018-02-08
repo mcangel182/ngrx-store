@@ -1,10 +1,9 @@
+import { Action } from '@ngrx/store';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { ThreadsService } from '../../services/threads.service';
 import { LOAD_USER_THREADS_ACTION, UserThreadsLoadedAction, SELECT_USER_ACTION, LoadUserThreadsAction } from '../action';
-import { Actions } from '@ngrx/effects';
-import { Effect } from '@ngrx/effects/src/effects_metadata';
-import { Action } from '@ngrx/store/src/models';
+import { Actions, Effect } from '@ngrx/effects';
 
 @Injectable()
 export class LoadThreadsEffectService {
