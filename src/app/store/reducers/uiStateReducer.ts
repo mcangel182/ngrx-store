@@ -21,6 +21,7 @@ export function uiState(state: UiState = INITIAL_UI_STATE, action: Action): UiSt
 
 function handleSelectedUserAction(state: UiState, action: SelectUserAction) {
   const newUiState = Object.assign({}, state);
+  newUiState.currentThreadId = undefined;
   newUiState.userId = action.payload;
   return newUiState;
 }
