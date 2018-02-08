@@ -23,6 +23,7 @@ import { UiState, INITIAL_UI_STATE } from './store/ui-state';
 import { StoreData, INITIAL_STORE_DATA } from './store/store-data';
 import { uiState } from './store/reducers/uiStateReducer';
 import { storeData } from './store/reducers/storeDataReducer';
+import { ServerNotificationsEffectService } from './store/effects/server-notifications-effect.service';
 
 
 export const reducers: ActionReducerMap<any> = {
@@ -44,7 +45,7 @@ export const reducers: ActionReducerMap<any> = {
     FormsModule,
     HttpClientModule,
     StoreModule.forRoot(reducers, {initialState: INITIAL_APPLICATION_STATE}),
-    EffectsModule.forRoot([LoadThreadsEffectService, WriteNewMessageEffectService]),
+    EffectsModule.forRoot([LoadThreadsEffectService, WriteNewMessageEffectService, ServerNotificationsEffectService]),
     StoreDevtoolsModule.instrument()
   ],
   providers: [ThreadsService],
